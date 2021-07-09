@@ -1,25 +1,17 @@
 <?php
-class Product{
+class Category{
   
     // database connection and table name
     private $conn;
-    private $table_name = "products";
+    private $table_name = "categories";
   
     // object properties
     public $id;
-	public $model;
-	public $sku;
     public $name;
+	public $parent_id;
     public $description;
-    public $price;
-	public $price_with_vat;
-	public $quantity;
-	public $tax_class;
-	public $manufacturer_id;
-    public $category_id;
-    public $category_name;
+	public $image_src;
 	public $status;
-	public $weight;
     public $date_created;
 	public $date_modified;
 
