@@ -1,4 +1,23 @@
 <?
+
+include_once('../config/serviceWP.php');
+
+$url = "https://staging-sofianosorthopedikagr.kinsta.cloud/wp-json/wc/v3/products";
+
+$service = new serviceWP();
+
+
+$data = $service->callService($url);
+
+print_r($data);
+
+
+
+
+
+
+
+
 /*
 $curl = curl_init();
 $auth_data = array(
@@ -30,10 +49,10 @@ echo $result;
 // curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 
-$url = "https://staging-sofianosorthopedikagr.kinsta.cloud/wp-json/wc/v3/products";
+//$url = "https://staging-sofianosorthopedikagr.kinsta.cloud/wp-json/wc/v3/products";
 
-$username='ck_a89a79ac67caccfd365c8e635116f075012e3903';
-$password='cs_f49bccc2da50457f42ea0ceebcf19c7e19d43b1a';
+//$username='ck_a89a79ac67caccfd365c8e635116f075012e3903';
+//$password='cs_f49bccc2da50457f42ea0ceebcf19c7e19d43b1a';
 
 
 
@@ -55,56 +74,31 @@ $password='cs_f49bccc2da50457f42ea0ceebcf19c7e19d43b1a';
 
 
 
+//$curl = curl_init($url);
+//curl_setopt($curl, CURLOPT_URL, $url);
+//curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-
-
-
-
-
-
-
-function jsonRemoveUnicodeSequences($struct) {
-		try {
-			
-			return preg_replace_callback('/\\\\u([0-9a-fA-F]{4})/', function ($match) {
-				return mb_convert_encoding(pack('H*', $match[1]), 'UTF-8', 'UCS-2BE');
-			}, json_encode($struct));
-		
-		 } catch (Exception $e) {
-			echo 'Caught exception: ',  $e->getMessage(), "\n";
-		 }
-}
-
-
-
-
-
-
-$curl = curl_init($url);
-curl_setopt($curl, CURLOPT_URL, $url);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-$wp_request_headers = array(
-  'Authorization' => 'Basic ' . 'ck_a89a79ac67caccfd365c8e635116f075012e3903:cs_f49bccc2da50457f42ea0ceebcf19c7e19d43b1a'
-);
-curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+//$wp_request_headers = array(
+//  'Authorization' => 'Basic ' . 'ck_a89a79ac67caccfd365c8e635116f075012e3903:cs_f49bccc2da50457f42ea0ceebcf19c7e19d43b1a'
+//);
+//curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
 //curl_setopt($curl, CURLOPT_HTTPHEADER, $wp_request_headers);
-curl_setopt($curl, CURLOPT_USERPWD, $username . ":" . $password);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+//curl_setopt($curl, CURLOPT_USERPWD, $username . ":" . $password);
+//curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+//curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
 //for debug only!
-curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);
-curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
+//curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);
+//curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
 
-$resp = curl_exec($curl);
-curl_close($curl);
+//$resp = curl_exec($curl);
+//curl_close($curl);
 
 //$json = utf8_encode($resp);
-$data = json_decode($resp);
+//$data = json_decode($resp);
 
 
-header('Content-Type: application/json');
-echo json_encode($data);
+//header('Content-Type: application/json');
+//echo json_encode($data);
 
 //print_r($data);
 //var_dump($resp);
