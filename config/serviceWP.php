@@ -1,9 +1,10 @@
 <?php
 class serviceWP{
     
-	
-	private $username='XBnKaywRCrj05mM-XXX-6DXuZ3FFkUgiw45';
-    private $password='btHTWVNMUATHEnF-XXX-2nQabKcKVo3VXtU';
+
+	private $username='ck_a89a79ac67caccfd365c8e635116f075012e3903';
+	private $password='cs_f49bccc2da50457f42ea0ceebcf19c7e19d43b1a';
+
 	
   
     public function callService($url)
@@ -12,18 +13,17 @@ class serviceWP{
 		$result = "";
 		try {
 			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_HEADER, 0);
-			curl_setopt($ch, CURLOPT_VERBOSE, 0);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,  2);
 			
 			curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
 			curl_setopt($ch, CURLOPT_POST, true);
 			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_HEADER, 1);
+			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
 			curl_setopt($ch, CURLOPT_USERPWD, $this->username . ":" . $this->password);
 			
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, true);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
 			
 			$response = curl_exec($ch);
 
