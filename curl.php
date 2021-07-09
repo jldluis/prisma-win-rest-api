@@ -1,6 +1,6 @@
 <?
 
-include_once('../config/serviceWP.php');
+include_once('config/serviceWP.php');
 
 $url = "https://staging-sofianosorthopedikagr.kinsta.cloud/wp-json/wc/v3/products";
 
