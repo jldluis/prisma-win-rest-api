@@ -10,7 +10,7 @@ class serviceWP{
     public function callService($url)
 	{
 
-		$result = "";
+		$result = array();
 		try {
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
