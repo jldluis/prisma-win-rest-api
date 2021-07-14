@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include_once('../config/Database.php');
 include_once('../objects/Product.php');
 
-$database = new Dtaabase;
+$database = new Database;
 $pdo = $database->getConnection();
 $product = new Product($pdo);
 
